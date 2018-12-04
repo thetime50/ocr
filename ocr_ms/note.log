@@ -1,0 +1,31 @@
+
+************Handwritten date************************
+
+
+{'status': 'Succeeded', 'recognitionResult': {
+	'lines': [
+		{'boundingBox': [2, 52, 65, 46, 69, 89, 7, 95], 'text': 'dog', 'words': [
+			{'boundingBox': [0, 58, 62, 41, 76, 84, 2, 101], 'text': 'dog'}]
+		}, 
+		{'boundingBox': [6, 2, 771, 13, 770, 75, 5, 64], 'text': 'The quick brown fox jumps over the lazy', 'words': [
+			{'boundingBox': [0, 3, 91, 4, 76, 70, 0, 70], 'text': 'The'}, 
+			{'boundingBox': [73, 3, 187, 4, 173, 71, 58, 70], 'text': 'quick'}, 
+			{'boundingBox': [174, 4, 319, 5, 305, 72, 159, 71], 'text': 'brown'}, 
+			{'boundingBox': [306, 5, 385, 5, 371, 72, 291, 72], 'text': 'fox'}, 
+			{'boundingBox': [381, 5, 504, 6, 489, 73, 366, 72], 'text': 'jumps'}, 
+			{'boundingBox': [491, 6, 605, 7, 591, 74, 476, 73], 'text': 'over'}, 
+			{'boundingBox': [588, 7, 671, 7, 657, 74, 573, 74], 'text': 'the'}, 
+			{'boundingBox': [658, 7, 781, 8, 767, 75, 643, 74], 'text': 'lazy'}]
+		}, 
+		{'boundingBox': [2, 84, 783, 96, 782, 154, 1, 148], 'text': 'Pack my box with five dozen liquor jugs', 'words': [
+			{'boundingBox': [0, 85, 92, 86, 71, 150, 0, 148], 'text': 'Pack'}, 
+			{'boundingBox': [75, 86, 162, 87, 141, 151, 53, 149], 'text': 'my'}, 
+			{'boundingBox': [154, 87, 242, 88, 220, 151, 132, 150], 'text': 'box'}, 
+			{'boundingBox': [224, 87, 343, 89, 321, 153, 203, 151], 'text': 'with'}, 
+			{'boundingBox': [334, 89, 431, 90, 409, 154, 313, 153], 'text': 'five'}, 
+			{'boundingBox': [418, 90, 536, 91, 515, 154, 396, 154], 'text': 'dozen'}, 
+			{'boundingBox': [545, 91, 699, 93, 678, 154, 524, 154], 'text': 'liquor'}, 
+			{'boundingBox': [695, 93, 800, 94, 779, 154, 673, 154], 'text': 'jugs'}]
+		}
+	]
+}}
