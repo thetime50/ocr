@@ -1,1 +1,1 @@
-- [ocr_ms] ocr for microsoft
+- [ocr_ms] ocr from microsoft
