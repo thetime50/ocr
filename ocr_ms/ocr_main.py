@@ -67,7 +67,7 @@ class ocrThread_C(threading.Thread):
 					#网络没有连接
 					#put_arr(sys.exc_info())
 					retry+=1
-					if retry>10:
+					if retry>15:
 						print(threadStr, self._id, 'error:connect error')
 						return
 					elif retry % 3==0:
@@ -76,9 +76,10 @@ class ocrThread_C(threading.Thread):
 				except hw.requests.exceptions.HTTPError:
 					#requests.exceptions.HTTPError: 429 Client Error: Too Many Requests for url:
 					retry+=1
-					if retry>10:
+					if retry>15:
 						print(threadStr, self._id, 'error:Too Many Requests for url')
 						return
+					print(threadStr, self._id,'retry, too many requests',retry)
 					time.sleep(10)
 
 
@@ -97,7 +98,7 @@ if __name__=='__main__':
 		if os.path.isfile(item) and item.split('.')[-1].upper() in ftype:
 			file_list.append(item)
 
-	ocrThreadMax=25
+	ocrThreadMax=10 #20
 	print('ocrThreadMax:',ocrThreadMax)
 	print('files:',len(file_list))
 	for item in file_list:
@@ -117,7 +118,7 @@ if __name__=='__main__':
 		item.start()
 	for item in thread_list:
 		item.join()
-	print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+	print('\r\n',time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
 	print('\r\nEnd\r\n')
 	print('***************************************************')
 	print('***************************************************')

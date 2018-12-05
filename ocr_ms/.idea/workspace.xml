@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="576f29fd-42c2-45f1-b05d-21341bf286be" name="默认更改列表" comment="">
-      <change beforePath="$PROJECT_DIR$/ocr.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/ocr.cmd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ocr_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/ocr_main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -83,12 +82,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="2644" />
+          <entry key="py" value="2674" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="2644" />
+          <entry key="Python" value="2674" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -114,14 +113,14 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/ocr_main.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="189">
-                  <caret line="105" column="62" selection-start-line="105" selection-start-column="62" selection-end-line="105" selection-end-column="62" />
+                <state relative-caret-position="284">
+                  <caret line="120" column="17" selection-start-line="120" selection-start-column="17" selection-end-line="120" selection-end-column="17" />
                   <folding>
                     <element signature="e#0#16#0" expanded="true" />
-                    <marker date="1544009067432" expanded="true" signature="87:1920" ph="..." />
-                    <marker date="1544009067432" expanded="true" signature="511:514" ph="..." />
-                    <marker date="1544009067432" expanded="true" signature="550:1920" ph="..." />
-                    <marker date="1544009067432" expanded="true" signature="1785:1918" ph="..." />
+                    <marker date="1544010732878" expanded="true" signature="87:1985" ph="..." />
+                    <marker date="1544010732878" expanded="true" signature="511:514" ph="..." />
+                    <marker date="1544010732878" expanded="true" signature="550:1985" ph="..." />
+                    <marker date="1544010732878" expanded="true" signature="1785:1983" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -188,9 +187,9 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-51" />
-    <option name="y" value="107" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="255" />
+    <option name="y" value="-19" />
     <option name="width" value="859" />
     <option name="height" value="534" />
   </component>
@@ -501,14 +500,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ocr_main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="105" column="62" selection-start-line="105" selection-start-column="62" selection-end-line="105" selection-end-column="62" />
+        <state relative-caret-position="284">
+          <caret line="120" column="17" selection-start-line="120" selection-start-column="17" selection-end-line="120" selection-end-column="17" />
           <folding>
             <element signature="e#0#16#0" expanded="true" />
-            <marker date="1544009067432" expanded="true" signature="87:1920" ph="..." />
-            <marker date="1544009067432" expanded="true" signature="511:514" ph="..." />
-            <marker date="1544009067432" expanded="true" signature="550:1920" ph="..." />
-            <marker date="1544009067432" expanded="true" signature="1785:1918" ph="..." />
+            <marker date="1544010732878" expanded="true" signature="87:1985" ph="..." />
+            <marker date="1544010732878" expanded="true" signature="511:514" ph="..." />
+            <marker date="1544010732878" expanded="true" signature="550:1985" ph="..." />
+            <marker date="1544010732878" expanded="true" signature="1785:1983" ph="..." />
           </folding>
         </state>
       </provider>
