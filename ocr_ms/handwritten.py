@@ -116,12 +116,12 @@ if __name__=='__main__':
 	li,_=recognizeText(cof['base_url'],cof['subscription_key'],\
 		"https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/" + \
 		"Cursive_Writing_on_Notebook_paper.jpg/800px-Cursive_Writing_on_Notebook_paper.jpg"	)
-	for iten in li:
-		print(iten)
+	for item in li:
+		print(item)
 
 	img = open("E:/Users/Desktop/Atom/Edit.png", "rb")
 	img_data=img.read()
 	li,_=recognizeText(cof['base_url'],cof['subscription_key'],img_data	)
 	img.close()
-	for iten in li:
-		print(iten)
+	for item in li:
+		print(item)
