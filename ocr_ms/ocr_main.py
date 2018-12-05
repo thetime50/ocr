@@ -9,8 +9,10 @@ class secureIter_C(object):
 		self._it=iter(li)
 	def next(self):
 		self.lock.acquire()
-		t=next(self._it)
-		self.lock.release()
+		try:
+			t=next(self._it)
+		finally:
+			self.lock.release()
 		return t
 
 def put_arr(a):
@@ -36,19 +38,19 @@ class ocrThread_C(threading.Thread):
 		self._file_name_iter=file_name_iter
 
 	def run(self):
-		securePrint('ocrThrear:',self._id)
+		threadStr='oT:'
+		securePrint(threadStr,self._id)
 		while True:
 			try:
 				file_name=self._file_name_iter.next()
-				securePrint('ocr file:',file_name)
+				securePrint(threadStr, self._id,'ocr file:',file_name)
 			except:
-				securePrint('ocrThrear:', self._id,'file_iter empty')
+				securePrint(threadStr, self._id,'file_iter empty')
 				return
 			img = open(file_name, "rb")
 			img_data = img.read()
 			img.close()
 			retry = 0
-			'''
 			while True:
 				try:
 					li, _ = hw.recognizeText(self._base_url, self._subscription_key, img_data)
@@ -62,15 +64,16 @@ class ocrThread_C(threading.Thread):
 					put_arr(sys.exc_info())
 					retry+=1
 					if retry>20:
-						print('ocrThrear:', self._id, 'connect error')
+						print(threadStr, self._id, 'connect error')
 						return
-			'''
+					elif retry % 3==0:
+						print(threadStr, self._id, 'retry',retry)
 
 
 
 if __name__=='__main__':
 	import json
-	print(sys.argv[0]+'start')
+	print(sys.argv[0],'Start')
 	''''''
 	fo = open(sys.path[0]+"/conf.ini", "r")
 	cof=json.load(fo)
@@ -81,13 +84,14 @@ if __name__=='__main__':
 	for item in sys.argv[1:]:
 		if os.path.isfile(item) and item.split('.')[-1].upper() in ftype:
 			file_list.append(item)
-	file_list=['E:/Users/Desktop/Atom/View.png','E:/Users/Desktop/Atom/Packages.png','E:/Users/Desktop/Atom/Selection.png']
 
 	ocrThreadMax=25
 	print('ocrThreadMax:',ocrThreadMax)
 	print('files:',len(file_list))
 	for item in file_list:
 		print(item)
+	print('\r\n')
+	print('***************************************************')
 
 	if ocrThreadMax>len(file_list):
 		ocrThreadMax=len(file_list)
@@ -101,6 +105,6 @@ if __name__=='__main__':
 		item.start()
 	for item in thread_list:
 		item.join()
-	print(sys.argv[0]+'end')
+	print(sys.argv[0],'End')
 
 
