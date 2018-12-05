@@ -2,6 +2,9 @@ import threading
 import handwritten as hw
 import sys
 import os
+import json
+import time
+
 
 class secureIter_C(object):
 	def __init__(self,li=[]):
@@ -58,22 +61,31 @@ class ocrThread_C(threading.Thread):
 					for item in li:
 						fout.write(item+'\r\n')
 					fout.close()
+					retry=0
 					break
 				except hw.requests.exceptions.ConnectionError:
 					#网络没有连接
-					put_arr(sys.exc_info())
+					#put_arr(sys.exc_info())
 					retry+=1
-					if retry>20:
-						print(threadStr, self._id, 'connect error')
+					if retry>10:
+						print(threadStr, self._id, 'error:connect error')
 						return
 					elif retry % 3==0:
 						print(threadStr, self._id, 'retry',retry)
-
+					time.sleep(1)
+				except hw.requests.exceptions.HTTPError:
+					#requests.exceptions.HTTPError: 429 Client Error: Too Many Requests for url:
+					retry+=1
+					if retry>10:
+						print(threadStr, self._id, 'error:Too Many Requests for url')
+						return
+					time.sleep(10)
 
 
 if __name__=='__main__':
-	import json
-	print(sys.argv[0],'Start')
+	print('Start\r\n')
+	print(sys.argv[0])
+	print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
 	''''''
 	fo = open(sys.path[0]+"/conf.ini", "r")
 	cof=json.load(fo)
@@ -91,7 +103,7 @@ if __name__=='__main__':
 	for item in file_list:
 		print(item)
 	print('\r\n')
-	print('***************************************************')
+	print('---------------------------------------------------')
 
 	if ocrThreadMax>len(file_list):
 		ocrThreadMax=len(file_list)
@@ -105,6 +117,10 @@ if __name__=='__main__':
 		item.start()
 	for item in thread_list:
 		item.join()
-	print(sys.argv[0],'End')
+	print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+	print('\r\nEnd\r\n')
+	print('***************************************************')
+	print('***************************************************')
+	print('\r\n')
 
 
