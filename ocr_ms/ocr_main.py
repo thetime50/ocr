@@ -2,34 +2,6 @@ import threading
 import handwritten as hw
 import sys
 
-class secureDict_C(object):
-	def __init__(self,*args):
-		self.lock=threading.Lock()
-		self._dic={}
-		self.set(*args)
-	def get(self,*args):
-		self.lock.acquire()
-		if len(args)==0:
-			t=self._dic
-		elif len(args)==1:
-			t=self._dic[args[0]]
-		self.lock.release()
-		#这里还需要考虑一下参数的生命空间
-		return t
-	def set(self,*args):
-		self.lock.acquire()
-		if len(args)==1 and type(args[0])==type({}):
-			for key in args[0]:
-				self._dic[key]=args[0][key]
-		elif len(args)==2:
-			self._dic[args[0]] = args[1]
-		self.lock.release()
-
-	#sd=secureDict_C({0:3})
-	#sd.set(2,2)
-	#sd.set({6:7,8:9})
-	#print(sd.get(0),sd.get(2),sd.get())#
-
 class secureIter_C(object):
 	def __init__(self,li=[]):
 		self.lock=threading.Lock()
@@ -83,16 +55,5 @@ if __name__=='__main__':
 	fo = open("conf.ini", "r")
 	cof=json.load(fo)
 	fo.close()
-	from io import BytesIO
 
-	img = open("E:/Users/Desktop/Atom/Edit.png", "rb")
-	img_data=img.read()
-	img.close()
-
-	try:
-		li,_=hw.recognizeText(cof['base_url'],cof['subscription_key'],img_data	)
-		for iten in li:
-			print(iten)
-	except:
-		put_arr(sys.exc_info())
 
