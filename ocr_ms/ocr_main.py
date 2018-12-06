@@ -59,7 +59,7 @@ class ocrThread_C(threading.Thread):
 					li, _ = hw.recognizeText(self._base_url, self._subscription_key, img_data)
 					fout=open(file_name.split('.')[0]+'.txt','a+')
 					for item in li:
-						fout.write(item+'\r\n')
+						fout.write(item+'\n')
 					fout.close()
 					retry=0
 					break
@@ -84,7 +84,7 @@ class ocrThread_C(threading.Thread):
 
 
 if __name__=='__main__':
-	print('Start\r\n')
+	print('Start\n')
 	print(sys.argv[0])
 	print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
 	''''''
@@ -103,7 +103,7 @@ if __name__=='__main__':
 	print('files:',len(file_list))
 	for item in file_list:
 		print(item)
-	print('\r\n')
+	print('\n')
 	print('---------------------------------------------------')
 
 	if ocrThreadMax>len(file_list):
@@ -118,10 +118,10 @@ if __name__=='__main__':
 		item.start()
 	for item in thread_list:
 		item.join()
-	print('\r\n',time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
-	print('\r\nEnd\r\n')
+	print('\n',time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+	print('\nEnd\n')
 	print('***************************************************')
 	print('***************************************************')
-	print('\r\n')
+	print('\n')
 
 
